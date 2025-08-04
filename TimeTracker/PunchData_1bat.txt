@@ -1,0 +1,2 @@
+echo off
+bcp "DECLARE @DT DATE=CAST(GETDATE()-1 AS DATE);EXEC UDSP_TT @DT" queryout "D:\Kronos\PunchData\FSL_IND_PUNCH_%date:~10,4%%date:~4,2%%date:~7,2%.csv" -w -t"," -T -S PTC-ACCESSCONT

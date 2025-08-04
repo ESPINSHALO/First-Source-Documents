@@ -1,0 +1,8 @@
+CREATE VIEW [dbo].[VW_TT_MNWT]
+AS
+SELECT Date,EmpID,
+max(LAG_SS) as Max_outside
+FROM VW_TTLAG WITH (NOLOCK)
+WHERE INOUT = 'IN'
+group by Date,EmpID
+HAVING MAX(LAG_SS) > 9*3600
